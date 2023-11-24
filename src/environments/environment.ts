@@ -1,4 +1,6 @@
+// environment.ts
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:3000/api', // URL de desarrollo
+    apiUrl: '/phpmailer/' // URL para desarrollo
   };
+  
