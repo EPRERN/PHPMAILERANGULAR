@@ -38,7 +38,7 @@ export class FileUploadComponent {
   onFileSelected(event: any) {
 
     const files: FileList = event.target.files;
-    console.log('Archivos seleccionados:', files);
+    // console.log('Archivos seleccionados:', files);
 
     this.filesSelected.emit(files);
 

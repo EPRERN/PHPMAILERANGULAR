@@ -285,7 +285,7 @@ export class FormularioComponent implements OnInit {
 
      
       const formData = new FormData();
-      console.log('FormData antes de agregar datos:', formData);
+      // console.log('FormData antes de agregar datos:', formData);
 
 
       Object.keys(this.formularioReclamo.value).forEach((key) => {
@@ -301,7 +301,7 @@ export class FormularioComponent implements OnInit {
         }
       });
 
-      console.log('FormData después de agregar datos:', formData);
+      // console.log('FormData después de agregar datos:', formData);
 
       if (this.files.length > 0) {
         this.files.forEach((file, index) => {
@@ -312,7 +312,7 @@ export class FormularioComponent implements OnInit {
         // console.log('No se han seleccionado archivos');
       }
 
-      console.log('FormData:', formData);
+      // console.log('FormData:', formData);
 
       this.showSweetAlertSuccess();
 

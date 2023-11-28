@@ -1,6 +1,6 @@
 // environment.ts
 export const environment = {
     production: false,
-    apiUrl: '/phpmailer/' // URL para desarrollo
+    apiUrl: 'http://localhost/phpmailer/forma2/' // URL para desarrollo
   };
   
