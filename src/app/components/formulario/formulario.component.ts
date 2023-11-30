@@ -31,9 +31,9 @@ export class FormularioComponent implements OnInit {
 
   constructor(public fb: FormBuilder, private emailService: EmailService,
     private checkboxService: CheckboxService,
-    private popupService:PopupService,
-    private router:Router,
-    public dialog:MatDialog
+    private popupService: PopupService,
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   localidades: any[] = [
@@ -41,7 +41,7 @@ export class FormularioComponent implements OnInit {
     { localidad: 'Arroyo de la Ventana', codigoPostal: '8168' },
     { localidad: 'Arroyo Los Berros', codigoPostal: '8521' },
     { localidad: 'Balneario El Condor', codigoPostal: '8501' },
-    { localidad: 'Balneario El Salado', codigoPostal: '8351' }, 
+    { localidad: 'Balneario El Salado', codigoPostal: '8351' },
     { localidad: 'Balsa Las Perlas', codigoPostal: '8324' },
     { localidad: 'Barda del Medio', codigoPostal: '8305' },
     { localidad: 'Campo Grande', codigoPostal: '8305' },
@@ -107,7 +107,7 @@ export class FormularioComponent implements OnInit {
     { localidad: 'Stefenelli', codigoPostal: '8332' },
     { localidad: 'Valcheta', codigoPostal: '8536' },
     { localidad: 'Valle Azul', codigoPostal: '8336' },
-    { localidad: 'Valle Verde', codigoPostal: '5115' }, 
+    { localidad: 'Valle Verde', codigoPostal: '5115' },
     { localidad: 'Viedma', codigoPostal: '8500' },
     { localidad: 'Villa Alberdi', codigoPostal: '8336' },
     { localidad: 'Villa Llanquin', codigoPostal: '8401' },
@@ -190,10 +190,10 @@ export class FormularioComponent implements OnInit {
   }
 
   showWelcomePopup() {
-     Swal.fire({
+    Swal.fire({
       title: '<br><h1><FONT size=7 color=#94ca4d><strong><u>¡Bienvenido!<u></FONT></strong></h1>',
       html: '<h2>Por favor, lea atentamente los campos antes de completar el formulario.<br> <FONT color="red">Los Campos con (*) son OBLIGATORIOS</FONT></h2>',
-      imageUrl:'../../assets/Epre.png',
+      imageUrl: '../../assets/Epre.png',
       // icon: 'warning',
       confirmButtonText: 'Entendido'
     });
@@ -283,7 +283,7 @@ export class FormularioComponent implements OnInit {
 
     if (this.formularioReclamo.valid) {
 
-     
+
       const formData = new FormData();
       // console.log('FormData antes de agregar datos:', formData);
 
@@ -315,14 +315,18 @@ export class FormularioComponent implements OnInit {
       // console.log('FormData:', formData);
 
       this.showSweetAlertSuccess();
-
+      
       this.emailService.sendEmailWithAttachment(formData).subscribe(
         (response) => {
+          // window.location.href = 'https://eprern.gov.ar/';
           // console.log('Correo electrónico enviado con éxito', response);
         },
         (error) => {
           // console.error('Error al enviar el correo electrónico:', error);
         });
+        setTimeout(() => {
+          window.location.href = 'https://eprern.gov.ar/'; // Redirige a la URL externa después de 6 segundos
+        }, 6000);
     } else {
       Swal.fire({
         icon: 'warning',
@@ -344,9 +348,9 @@ export class FormularioComponent implements OnInit {
   }
   openPopup(): void {
     const dialogRef = this.dialog.open(EasterComponent, {
-      width: '480px', 
-      height:'550px',
-      
+      width: '480px',
+      height: '550px',
+
     });
   }
 
